@@ -1,0 +1,70 @@
+[
+    {
+        "name": "Essential",
+        "category": "Food"
+    },
+    {
+        "name": "Delivery",
+        "category": "Food"
+    },
+    {
+        "name": "Pub/Restaurant",
+        "category": "Food"
+    },
+    {
+        "name": "Drinks out",
+        "category": "Food"
+    },
+    {
+        "name": "Drinks in",
+        "category": "Food"
+    },
+    {
+        "name": "Electric",
+        "category": "Bills"
+    },
+    {
+        "name": "Internet",
+        "category": "Bills"
+    },
+    {
+        "name": "Water",
+        "category": "Bills"
+    },
+    {
+        "name": "Council Tax",
+        "category": "Bills"
+    },
+    {
+        "name": "Games",
+        "category": "Entertainment"
+    },
+    {
+        "name": "Subscriptions",
+        "category": "Entertainment"
+    },
+    {
+        "name": "Cinema",
+        "category": "Entertainment"
+    },
+    {
+        "name": "Activities",
+        "category": "Entertainment"
+    },
+    {
+        "name": "Train",
+        "category": "Travel"
+    },
+    {
+        "name": "Bus",
+        "category": "Travel"
+    },
+    {
+        "name": "Taxi/Uber",
+        "category": "Travel"
+    },
+    {
+        "name": "Flight",
+        "category": "Travel"
+    }
+]

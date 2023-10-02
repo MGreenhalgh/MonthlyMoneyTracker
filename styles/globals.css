@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 :root {
+  font-family: 'Roboto', sans-serif;
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -9,30 +12,24 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+  --primary-glow: conic-gradient(from 180deg at 50% 50%,
+      #16abff33 0deg,
+      #0885ff33 55deg,
+      #54d6ff33 120deg,
+      #0071ff33 160deg,
+      transparent 360deg);
+  --secondary-glow: radial-gradient(rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0));
 
   --tile-start-rgb: 239, 245, 249;
   --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
+  --tile-border: conic-gradient(#00000080,
+      #00000040,
+      #00000030,
+      #00000020,
+      #00000010,
+      #00000010,
+      #00000080);
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
@@ -47,29 +44,31 @@
     --background-end-rgb: 0, 0, 0;
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+    --secondary-glow: linear-gradient(to bottom right,
+        rgba(1, 65, 255, 0),
+        rgba(1, 65, 255, 0),
+        rgba(1, 65, 255, 0.3));
 
     --tile-start-rgb: 2, 13, 46;
     --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
+    --tile-border: conic-gradient(#ffffff80,
+        #ffffff40,
+        #ffffff30,
+        #ffffff20,
+        #ffffff10,
+        #ffffff10,
+        #ffffff80);
 
     --callout-rgb: 20, 20, 20;
     --callout-border-rgb: 108, 108, 108;
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
   }
 }
 
@@ -83,25 +82,446 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  height: 100vh;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  transition-property: background-color, color, transform;
+  transition-duration: 0.3s;
+  transform-origin: 50% 50%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 30px;
+  background-color: #222;
+  width: 100%;
+  height: 150px;
+  box-shadow: 0 0 5px 0 #000f;
+}
+
+header .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+header button {
+  width: fit-content;
+  padding: 5px 10px 5px 30px;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 10px 50%;
+  border: #999 solid 1px;
+  border-radius: 15px;
+  background-color: #333;
+}
+
+header .configButton {
+  margin-bottom: -15px;
+  background-image: url(/icons/gear-solid.svg);
+}
+
+.monthlySpending * {
+  text-align: center;
+}
+
+.monthlySpending {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.monthlyTotal {
+  font-size: xxx-large;
+  color: green;
+  font-weight: bold;
+}
+
+.monthlyTotal.red {
+  color: red;
+}
+
+.monthDates {
+  font-size: small;
+}
+
+.userHolder {
+  background-image: url(/icons/user-solid.svg);
+  align-self: flex-start;
+}
+
+header button:hover,
+.submitButton:hover {
+  background-color: #444;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.appBody {
+  padding: 30px;
+  display: flex;
+  height: calc(100vh - 150px);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.categoriesHolder {
+  flex: 2;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.categoryGroupHeading {
+  font-size: x-large;
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryGroupHeading label {
+  display: flex;
+  font-size: small;
+  white-space: nowrap;
+  gap: 10px;
+}
+
+.categoryGroup {
+  display: flex;
+  gap: 20px;
+  border-top: #222 solid 1px;
+  width: fit-content;
+  padding-top: 15px;
+  margin-top: -15px;
+}
+
+.chartHolder {
+  flex: 1;
+  padding-left: 30px;
+  border-left: #222 solid 4px;
+  width: 100px;
+}
+
+.entryDisplay {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  list-style: none;
+  font-size: small;
+}
+
+.newCategoryForm,
+.newEntryForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 15px;
+  background-color: #333;
+  border: #999 solid 1px;
+  border-radius: 15px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transform: translate(-50%, -50%);
+}
+
+.newEntryForm * {
+  text-align: center;
+}
+
+.newEntryForm label {
+  font-size: small;
+  width: 200px
+}
+
+.formButtonHolder {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.formButtonHolder>button {
+  width: 100px;
+  border: #999 solid 1px;
+  user-select: none;
+}
+
+.formButtonHolder>button.inButton {
+  background-color: #0a02;
+  color: #777;
+  border-radius: 0 10px 10px 0;
+}
+
+.formButtonHolder>button.outButton {
+  background-color: #f004;
+  color: #777;
+  border-radius: 10px 0 0 10px;
+}
+
+.formButtonHolder.in>button.inButton {
+  background-color: #0a0f;
+  color: #fff;
+}
+
+.formButtonHolder.out>button.outButton {
+  background-color: #f00f;
+  color: #fff;
+}
+
+.newEntryForm input,
+.newEntryForm select {
+  width: 100%;
+}
+
+.submitButton {
+  background-color: #333;
+  border: #999 solid 1px;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+#showFormButton,
+.closeButton,
+.categoryRemoveButton,
+.categoryEditButton {
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 60%;
+}
+
+#showFormButton {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  background-color: royalblue;
+  background-image: url(/icons/plus-solid-white.svg);
+  transition-property: transform;
+  transform-origin: 50% 50%;
+}
+
+#showFormButton:hover {
+  transform: scale(1.1);
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  background-image: url(/icons/x-solid.svg);
+  padding: 0;
+  border: none;
+}
+
+.closeButton:hover,
+.categoryRemoveButton:hover {
+  background-color: red;
+  transform: scale(1.1);
+}
+
+#formOutside {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #0006;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category {
+  height: fit-content;
+  width: 250px;
+  padding: 10px 10px 0 10px;
+  border-radius: 5px;
+  color: #000
+}
+
+.category.in {
+  border: green solid 5px;
+}
+
+.category.out {
+  border: red solid 5px;
+}
+
+.category>.heading {
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: #000 solid 1px;
+  font-weight: bold;
+  font-size: large;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.category .body {
+  font-size: small;
+}
+
+.categoryEntry {
+  position: relative;
+  padding: 5px 0;
+  display: grid;
+  grid-template-areas:
+    "heading heading"
+    "money subCat"
+    "money note";
+  grid-template-columns: auto auto;
+  grid-template-rows: 30% 35% 35%;
+}
+
+.categoryEntry .closeButton {
+  top: 3px;
+  right: -1px;
+  width: 15px;
+  height: 15px;
+}
+
+.categoryEntry .heading {
+  grid-area: heading;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.categoryEntry .money {
+  grid-area: money;
+  font-size: x-large;
+  font-weight: bold;
+  width: fit-content
+}
+
+.out .categoryEntry .money {
+  color: darkred;
+}
+
+.in .categoryEntry .money {
+  color: darkgreen;
+}
+
+.categoryEntry .subCat {
+  grid-area: subCat;
+  text-align: right;
+}
+
+.categoryEntry .note {
+  grid-area: note;
+  text-align: right;
+}
+
+.categoryEntry.bottomBorder {
+  border-bottom: #222 solid 1px;
+}
+
+.categoryEntry.expired {
+  background-color: #0009;
+  box-shadow: 10px 0px 0px 0px #0009, -10px 0px 0px 0px #0009;
+}
+
+.newCategoryForm .categoryRemoveButton {
+  background-image: url(/icons/x-solid.svg);
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  border: none;
+  padding: 0;
+}
+
+.newCategoryForm {
+  align-items: flex-start;
+}
+
+.newCategoryForm h2 {
+  text-align: center;
+}
+
+.newCategoryForm .existingCategoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.newCategoryForm .existingCategoryHolder {
+  margin-left: 50px;
+  display: flex;
+  gap: 5px;
+}
+
+.existingCategoryHolder.out {
+  background-color: #0a02;
+}
+
+.existingCategoryHolder.in {
+  background-color: #f004;
+}
+
+.newCategoryForm .categoryEditButton {
+  background-image: url(/icons/pencil-solid.svg);
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  border: none;
+  padding: 0;
+}
+
+.newCategoryForm .formButtonHolder {
+  width: 50px;
+  height: 30px;
+}
+
+.newCategoryForm .formButtonHolder * {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.addCategory {
+  text-align: center;
+  width: 100%;
+  border: #999 solid 2px;
+  border-radius: 10px;
+  padding: 5px 0;
+}
+
+.newCategoryForm h3 {
+  margin-bottom: 10px;
+}
+
+.addCategory input[type="text"] {
+  width: 70%;
+  margin-bottom: 5px;
+}
+
+.addCategory>div {
+  margin: 0 auto 5px auto;
+  padding-left: 15px;
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}
+
+
+.addSubCategory {
+  border: #999 solid 2px;
+  border-radius: 10px;
+  padding: 5px 0;
+  text-align: center;
+  width: 100%;
 }

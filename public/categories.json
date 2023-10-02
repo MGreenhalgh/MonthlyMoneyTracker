@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Food",
+        "out": true,
+        "color": "#b99737"
+    },
+    {
+        "name": "Bills",
+        "out": true,
+        "color": "#9a929e"
+    },
+    {
+        "name": "Rent",
+        "out": true,
+        "color": "#246bf5"
+    },
+    {
+        "name": "Entertainment",
+        "out": true,
+        "color": "#396f9a"
+    },
+    {
+        "name": "Travel",
+        "out": true,
+        "color": "#81cc68"
+    },
+    {
+        "name": "Other Expense",
+        "out": true,
+        "color": "#ebaa52"
+    },
+    {
+        "name": "Salary",
+        "out": false,
+        "color": "#0fbebb"
+    },
+    {
+        "name": "Bank Interest",
+        "out": false,
+        "color": "#992b89"
+    },
+    {
+        "name": "Gift",
+        "out": false,
+        "color": "#5f8164"
+    },
+    {
+        "name": "Other Income",
+        "out": false,
+        "color": "#b0cf89"
+    }
+]
