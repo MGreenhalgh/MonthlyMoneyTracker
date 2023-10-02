@@ -25,7 +25,7 @@ const ExpensesChart = ({ entries, categories, subCategories }) => {
                 borderRadius: 3,
                 backgroundColor: "#0008",
                 textAlign: "center",
-                formatter: function (value, context) {
+                formatter: (value, context) => {
                     return `${context.chart.data.labels[context.dataIndex] ? `${context.chart.data.labels[context.dataIndex]}\n` : ''}${GBP.format(value)}`
                 }
             }

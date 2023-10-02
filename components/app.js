@@ -23,6 +23,8 @@ const App = () => {
     const [categories, setCategories] = useState([])
     const [subCategories, setSubCategories] = useState([])
 
+    const [showEntryList, setShowEntryList] = useState(false)
+
     useEffect(() => {
         const fetchEntries = async () => {
             const response = await fetch("/api/entries");
@@ -91,7 +93,9 @@ const App = () => {
                 categories={categories}
                 setCategories={setCategories}
                 subCategories={subCategories}
-                setSubCategories={setSubCategories} />
+                setSubCategories={setSubCategories}
+                showEntryList={showEntryList}
+                setShowEntryList={setShowEntryList} />
 
             <div className="appBody">
                 {showNewEntryForm &&
@@ -128,16 +132,17 @@ const App = () => {
                 </div>
             </div>
 
-            <ul className="entryDisplay">
-                {entries.map((entry) => {
-                    return (
-                        <li key={entry.id}>
-                            {entry.id}: {entry.out ? "Spent" : "Recieved"} {GBP.format(entry.value)} {entry.out ? "on" : "from"} {entry.category} {entry.subCategory ? `(${entry.subCategory})` : ''} on {entry.date}{entry.note ? `, note: ${entry.note}.` : '.'}
-                        </li>
-                    );
-                })}
-            </ul>
-
+            {showEntryList &&
+                <ul className="entryDisplay">
+                    {entries.map((entry) => {
+                        return (
+                            <li key={entry.id}>
+                                {entry.id}: {entry.out ? "Spent" : "Recieved"} {GBP.format(entry.value)} {entry.out ? "on" : "from"} {entry.category} {entry.subCategory ? `(${entry.subCategory})` : ''} on {entry.date}{entry.note ? `, note: ${entry.note}.` : '.'}
+                            </li>
+                        );
+                    })}
+                </ul>
+            }
             <button id="showFormButton" type="button" onClick={() => setShowNewEntryForm(true)}></button>
         </>
     )
