@@ -201,6 +201,7 @@ body {
   font-size: small;
   white-space: nowrap;
   gap: 10px;
+  width: fit-content;
 }
 
 .categoryGroup {

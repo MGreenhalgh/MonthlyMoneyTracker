@@ -3,7 +3,6 @@ import NewFormButtonHolder from "./newFormButtonHolder"
 import NewCategorySelect from "./newCategorySelect"
 import NewSubCategorySelect from "./newSubCategorySelect"
 
-
 const NewEntryForm = ({ setEntries, setShowNewEntryForm, categories, subCategories }) => {
 
     const [outSelected, setOutSelected] = useState(true)
@@ -60,7 +59,7 @@ const NewEntryForm = ({ setEntries, setShowNewEntryForm, categories, subCategori
             return
         }
         console.log(`In or out: ${outSelected ? "out" : "in"} \nCategory: ${chosenCategory} \nSub Category: ${chosenSubCategory} \nDate: ${chosenDate} \nValue: £${chosenValue} `);
-        addEntry({ out: outSelected, category: chosenCategory, subCategory: chosenSubCategory, date: chosenDate, value: Number(chosenValue), note: note })
+        addEntry({ id: crypto.randomUUID, out: outSelected, category: chosenCategory, subCategory: chosenSubCategory, date: chosenDate, value: Number(chosenValue), note: note })
 
         setCategorySelectValue('DEFAULT')
         setChosenCategory('')
