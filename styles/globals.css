@@ -12,6 +12,8 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
+  --headerColor: #999;
+
   --primary-glow: conic-gradient(from 180deg at 50% 50%,
       #16abff33 0deg,
       #0885ff33 55deg,
@@ -42,6 +44,8 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+
+    --headerColor: #222222;
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
     --secondary-glow: linear-gradient(to bottom right,
@@ -99,7 +103,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 30px 30px;
-  background-color: #222;
+  background-color: var(--headerColor);
   width: 100%;
   height: 150px;
   box-shadow: 0 0 5px 0 #000f;
@@ -126,9 +130,9 @@ header button {
   background-repeat: no-repeat;
   background-size: 15px;
   background-position: 10px 50%;
-  border: #999 solid 1px;
+  border: #666 solid 1px;
   border-radius: 15px;
-  background-color: #333;
+  background-color: var(--headerColor);
 }
 
 header .configButton {
@@ -180,6 +184,12 @@ body {
   padding: 30px;
   display: flex;
   height: calc(100vh - 150px);
+}
+
+h2 {
+  text-align: center;
+  font-size: 40px;
+  padding-top: 30px;
 }
 
 .categoriesHolder {
@@ -235,8 +245,8 @@ body {
   top: 50%;
   left: 50%;
   padding: 15px;
-  background-color: #333;
-  border: #999 solid 1px;
+  background-color: var(--headerColor);
+  border: #666 solid 1px;
   border-radius: 15px;
   width: 300px;
   display: flex;
@@ -264,7 +274,7 @@ body {
 
 .formButtonHolder>button {
   width: 100px;
-  border: #999 solid 1px;
+  border: #666 solid 1px;
   user-select: none;
 }
 
@@ -296,8 +306,8 @@ body {
 }
 
 .submitButton {
-  background-color: #333;
-  border: #999 solid 1px;
+  background-color: var(--headerColor);
+  border: #666 solid 1px;
   padding: 5px 10px;
   border-radius: 15px;
 }
@@ -506,7 +516,7 @@ body {
 .addCategory {
   text-align: center;
   width: 100%;
-  border: #999 solid 2px;
+  border: #666 solid 2px;
   border-radius: 10px;
   padding: 5px 0;
 }
@@ -530,7 +540,7 @@ body {
 
 
 .addSubCategory {
-  border: #999 solid 2px;
+  border: #666 solid 2px;
   border-radius: 10px;
   padding: 5px 0;
   text-align: center;

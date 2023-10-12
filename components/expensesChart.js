@@ -9,14 +9,10 @@ const ExpensesChart = ({ entries, categories, subCategories }) => {
     const chartRef = useRef(null)
 
     const [chartOptions, setChartOptions] = useState({
+        layout: {
+            padding: 30
+        },
         plugins: {
-            title: {
-                display: true,
-                text: "This Month's Expenses",
-                color: "white",
-                padding: 40,
-                font: { size: 30 }
-            },
             legend: { display: false },
             tooltip: { enabled: false },
             datalabels: {
@@ -113,8 +109,10 @@ const ExpensesChart = ({ entries, categories, subCategories }) => {
     }, [entries])
 
     return (
-        <Pie ref={chartRef} data={chartData} plugins={[ChartDataLabels]} options={chartOptions} />
-
+        <>
+            <h2>This Month's Expenses</h2>
+            <Pie ref={chartRef} data={chartData} plugins={[ChartDataLabels]} options={chartOptions} />
+        </>
     )
 }
 

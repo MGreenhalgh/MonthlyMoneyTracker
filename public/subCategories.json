@@ -36,6 +36,14 @@
         "category": "Bills"
     },
     {
+        "name": "Rent",
+        "category": "Rent"
+    },
+    {
+        "name": "Deposit",
+        "category": "Rent"
+    },
+    {
         "name": "Games",
         "category": "Entertainment"
     },

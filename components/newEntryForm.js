@@ -46,6 +46,10 @@ const NewEntryForm = ({ setEntries, setShowNewEntryForm, categories, subCategori
         setEntries(data);
     }
 
+    const HandleEnter = (e) => {
+        if (e.key === "Enter") HandleSubmit(e)
+    }
+
     const HandleSubmit = (e) => {
         e.preventDefault()
 
@@ -89,18 +93,18 @@ const NewEntryForm = ({ setEntries, setShowNewEntryForm, categories, subCategori
                     <NewSubCategorySelect setChosenSubCategory={setChosenSubCategory} selectedSubCategories={selectedSubCategories} />}
 
                 <label htmlFor="entryDate">Date<br />
-                    <input id="entryDate" type="date" onChange={(e) => setChosenDate(e.target.value)} value={chosenDate} ></input>
+                    <input id="entryDate" type="date" onKeyDown={HandleEnter} onChange={(e) => setChosenDate(e.target.value)} value={chosenDate} ></input>
                 </label>
 
                 <label htmlFor="entryValue">Value (£)<br />
-                    <input id="entryValue" type="number" onChange={(e) => setChosenValue(e.target.value)} value={chosenValue} ></input>
+                    <input id="entryValue" type="number" onKeyDown={HandleEnter} onChange={(e) => setChosenValue(e.target.value)} value={chosenValue} ></input>
                 </label>
 
                 <label htmlFor="entryNote">Note (optional)<br />
-                    <input id="entryNote" type="text" onChange={(e) => setNote(e.target.value)} value={note}></input>
+                    <input id="entryNote" type="text" onKeyDown={HandleEnter} onChange={(e) => setNote(e.target.value)} value={note}></input>
                 </label>
 
-                <button className="submitButton">Submit</button>
+                <button className="submitButton" >Submit</button>
             </form>
         </div>
     )
