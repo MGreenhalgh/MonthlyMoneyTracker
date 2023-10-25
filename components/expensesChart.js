@@ -106,11 +106,11 @@ const ExpensesChart = ({ entries, categories, subCategories }) => {
 
             return newData
         })
-    }, [entries])
+    }, [categories, entries])
 
     return (
         <>
-            <h2>This Month's Expenses</h2>
+            <h2>This Month&apos;s Expenses</h2>
             <Pie ref={chartRef} data={chartData} plugins={[ChartDataLabels]} options={chartOptions} />
         </>
     )
